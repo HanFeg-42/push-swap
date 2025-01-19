@@ -47,9 +47,48 @@ void	lst_addback(t_stack **lst, t_stack *new)
 	last->next = new;
 }
 
+void	lst_delone(t_stack *lst)
+{
+	if (!lst)
+		return ;
+	free(lst->data);
+	free(lst);
+}
+
+void	lst_clear(t_stack **lst)
+{
+	t_stack *tmp;
+	t_stack	*next;
+	
+	if (!lst)
+		return ;
+	tmp = *lst;
+	while (tmp)
+	{
+		next = tmp->next;
+		lst_delone(tmp);
+		tmp = next;
+	}
+	*lst = NULL;
+}
+
+int	lst_size(t_stack *lst)
+{
+	int	len;
+
+	len = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		len++;
+	}
+	return (len);
+}
+
 //TO-DO => ----------------------------lst_new -/
 //TO-DO => ----------------------------lst_addfront -/
 //TO-DO => ----------------------------lst_addback -/
 //TO-DO => ----------------------------lst_last-/
-//TO-DO => ----------------------------lst_clear
-//TO-DO => ----------------------------lst_delone
+//TO-DO => ----------------------------lst_clear-/
+//TO-DO => ----------------------------lst_size -/
+//TO-DO => ----------------------------lst_delone-/
