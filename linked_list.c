@@ -25,7 +25,7 @@ t_stack	*lst_last(t_stack *lst)
 	t_stack	*last;
 
 	if (!lst)
-		return ;
+		return (NULL);
 	last = lst;
 	while (last->next)
 		last = last->next;
@@ -51,7 +51,7 @@ void	lst_delone(t_stack *lst)
 {
 	if (!lst)
 		return ;
-	free(lst->data);
+	//free(lst->data);
 	free(lst);
 }
 
@@ -59,7 +59,7 @@ void	lst_clear(t_stack **lst)
 {
 	t_stack *tmp;
 	t_stack	*next;
-	
+
 	if (!lst)
 		return ;
 	tmp = *lst;
