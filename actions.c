@@ -6,23 +6,23 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 02:47:38 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/16 20:35:19 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:46:19 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	swap(t_stack **a)
-// {
-// 	t_stack	*tmp;
+void	swap(t_stack **a)
+{
+	t_stack	*tmp;
 
-// 	if (a->next != NULL)
-// 	{
-// 		tmp = ft_lstnew(a->data);
-// 		a->data = a->next->data;
-// 		a->next>data = tmp->data; // zidi les ***
-// 	}
-// }
+	if (a->next != NULL)
+	{
+		tmp = ft_lstnew(a->data);
+		a->data = a->next->data;
+		a->next>data = tmp->data; // zidi les ***
+	}
+}
 
 /*=========--sa--=========--sb--============*/
 
@@ -39,9 +39,9 @@ void	sa(t_stack **a, int check)
 {
 	if (!a)
 		return ;
-	if (!(*a) || !(*(a)->next))
+	if (!(*a) || !((*a)->next))
 		return ;
-	ft_swap(*(a)->data, *(a)->next->data);
+	ft_swap((*a)->data, (*a)->next->data);
 	if (check)
 		ft_putstr_fd("sa\n", 1);
 }

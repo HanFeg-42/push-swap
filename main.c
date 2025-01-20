@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/20 15:51:55 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:25:18 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ int main(int ac, char **av)
 		printf("Error\n");
 		return (1);
 	}
+
 	current = a;
-	while(a)
+	while(current)
 	{
 		printf("%d-->", current->data);
 		current = current->next;

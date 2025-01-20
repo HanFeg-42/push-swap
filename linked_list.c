@@ -18,7 +18,7 @@ void	lst_addfront(t_stack **lst, t_stack *new)
 		return ;
 	new->next = *lst;
 	*lst = new;
-}
+} 
 
 t_stack	*lst_last(t_stack *lst)
 {
@@ -32,18 +32,18 @@ t_stack	*lst_last(t_stack *lst)
 	return (last);
 }
 
-void	lst_addback(t_stack **lst, t_stack *new)
+void	lst_addback(t_stack ****lst, t_stack *new)
 {
 	t_stack *last;
 
 	if (!new || !lst)
 		return ;
-	if (!(*lst))
+	if (!(***lst))
 	{
-		*lst = new;
+		***lst = new;
 		return ;
 	}
-	last = lst_last(*lst);
+	last = lst_last(***lst);
 	last->next = new;
 }
 

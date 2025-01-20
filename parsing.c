@@ -13,14 +13,14 @@ int	check_args(t_stack **a, char **av)
 	// must atoi the list;
 	if (is_OK)
 	{
-		init_stack(a, split);// use atoi
+		init_stack(&a, split);// use atoi
 		is_repeated(*a, &is_OK);
 		if (is_OK)
 			is_integer(*a, &is_OK);
 	}
 	if (!is_OK)
 		lst_clear(a);
-	return (free(join), cleanup(split), is_OK);
+	return (cleanup(split), is_OK);
 }
 
 char	*join_args(char **av)
@@ -33,7 +33,7 @@ char	*join_args(char **av)
 	i = 1;
 	while (av[i])
 	{
-		av[i] = ft_strjoin(av[i], " ");
+		av[i] = ft_strjoin(av[i], " ");//free 3afak
 		i++;
 	}
 	join = ft_strdup("");
@@ -65,9 +65,11 @@ char	**split_args(char *join, bool *is_ok)
 		{
 			if (split[i][j] == '+' || split[i][j] == '-')
 				j++;
-			while (split[i][j])
+			if (split[i][j] == '\0')  //should be while
+					return (*is_ok = false, split);
+			while (split[i][j])// check - +
 			{
-				if (split[i][j] < '0' && split[i][j] > '9') //should be while
+				if (split[i][j] < '0' || split[i][j] > '9') //should be while
 					return (*is_ok = false, split);
 				j++;
 			}
@@ -87,7 +89,7 @@ void	cleanup(char **str)
 	free(str);
 }
 
-void	init_stack(t_stack **a, char **split)
+void	init_stack(t_stack ***a, char **split)
 {
 	int	i;
 	t_stack	*new;
@@ -98,7 +100,7 @@ void	init_stack(t_stack **a, char **split)
 	while (split[i])
 	{
 		new = lst_new(ft_atoi(split[i]));
-		lst_addback(a, new);
+		lst_addback(&a, new);
 		i++;
 	}
 }
