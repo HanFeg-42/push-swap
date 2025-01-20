@@ -6,26 +6,18 @@ int	check_args(t_stack **a, char **av)
 	char	**split;
 	bool	is_OK;
 
-	join = join_args(av);printf("join = %s\n", join);
+	join = join_args(av);
 	is_OK = true;
-	split = split_args(join, &is_OK);printf("%s\n",split[1]); // 1 3 dog -- --4 65gh77 a +--3b 7 0
+	split = split_args(join, &is_OK); // 1 3 dog -- --4 65gh77 a +--3b 7 0
 	free(join);
 	// must atoi the list;
 	if (is_OK)
 	{
-		init_stack(a, split); printf("%d==>%d==>", (*a)->data, (*a)->next->data);// use atoi
-		is_repeated(*a, &is_OK);printf("444\n");
+		init_stack(a, split);// use atoi
+		is_repeated(*a, &is_OK);
 		if (is_OK)
 			is_integer(*a, &is_OK);
 	}
-	t_stack    *current;
-	current = *a;
-    while (current) {
-		printf("whati whati ya lalla\n");
-        printf("%d --> ", current->data); // Print data
-        current = current->next;         // Move to the next node
-    }
-    printf("NULL\n");
 	if (!is_OK)
 		lst_clear(a);
 	return (free(join), cleanup(split), is_OK);
@@ -41,7 +33,7 @@ char	*join_args(char **av)
 	i = 1;
 	while (av[i])
 	{
-		av[i] = ft_strjoin(av[i], " "); printf("av de i is %s-->", av[i]);
+		av[i] = ft_strjoin(av[i], " ");
 		i++;
 	}
 	join = ft_strdup("");
@@ -105,7 +97,7 @@ void	init_stack(t_stack **a, char **split)
 	i = 0;
 	while (split[i])
 	{
-		new = lst_new(ft_atoi(split[i])); printf("%d-->", new->data);
+		new = lst_new(ft_atoi(split[i]));
 		lst_addback(a, new);
 		i++;
 	}
