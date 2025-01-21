@@ -18,7 +18,7 @@ void	lst_addfront(t_stack **lst, t_stack *new)
 		return ;
 	new->next = *lst;
 	*lst = new;
-} 
+}
 
 t_stack	*lst_last(t_stack *lst)
 {

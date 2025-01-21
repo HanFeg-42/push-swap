@@ -2,6 +2,25 @@
 
 int	check_args(t_stack **a, char **av)
 {
+	char **args;
+	int i;
+
+	if (!a)
+		return (false);
+	args = get_args(av); // join and split them
+	i = 0;
+	while(args[i])
+	{
+		//hna feeen kaywqe3 si7r wa chokran
+	}
+	return (true);
+}
+char	**get_args(char **av)
+{
+	return (NULL);
+}
+int	check_args(t_stack **a, char **av)
+{
 	char	*join;
 	char	**split;
 	bool	is_OK;
