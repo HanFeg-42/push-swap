@@ -29,6 +29,7 @@ typedef struct s_list
 
 // FIRST PART
 int					ft_atoi(const char *a);
+long				ft_atol(const char *a)
 void				ft_bzero(void *s, unsigned int n);
 void				*ft_calloc(size_t nitems, size_t size);
 int					ft_isalnum(int c);

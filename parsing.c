@@ -1,7 +1,58 @@
 #include "push_swap.h"
 
+char	**get_args(char **av)
+{
+	char	*join;
+	char	*tmp;
+	int	i;
+
+	//join every arg with a space
+	i = 1;
+	while (av[i])
+	{
+		av[i] = ft_strjoin(av[i], " ");//free 3afak
+		i++;
+	}
+	join = ft_strdup("");
+	//joining the args to each other
+	i = 1;
+	while (av[i])
+	{
+		tmp = join;
+		join = ft_strjoin(join, av[i]);
+		free(tmp);
+		free(av[i]);
+		i++;
+	}
+	tmp = ft_split(join, ' ');
+	return (free(join), tmp);
+}
+
+int	is_arg_valid(char *nbr)
+{
+	int	i;
+	int	number;
+
+	i = 0;
+	if (nbr[i] == '+' || nbr[i] == '-')
+		i++;
+	if (nbr[i] == '\0')
+		return (false);
+	while (nbr[i])
+	{
+		if (!ft_isdigit(nbr[i]))
+			return (false);
+		i++;
+	}
+	number = ft_atol(nbr);
+	if (number < INT_MIN || number > INT_MAX)
+		return (false);
+	return (true);
+}
+
 int	check_args(t_stack **a, char **av)
 {
+	t_stack	*new;
 	char **args;
 	int i;
 
@@ -12,14 +63,26 @@ int	check_args(t_stack **a, char **av)
 	while(args[i])
 	{
 		//hna feeen kaywqe3 si7r wa chokran
+		if (!is_arg_valid(args[i]))
+			return (cleanup(args), lst_clear(a), false);
+		if(!is_duplicated(a, args[i]))
+			return (cleanup(args), lst_clear(a), false);
+		new = lst_new(ft_atoi(args[i]));
+		lst_addback(a, new);
 	}
 	return (true);
 }
-char	**get_args(char **av)
+
+void	cleanup(char **str)
 {
-	
-	return (NULL);
+	int	i;
+
+	i = 0;
+	while (str[i++])
+		free(str[i]);
+	free(str);
 }
+
 // int	check_args(t_stack **a, char **av)
 // {
 // 	char	*join;
@@ -99,15 +162,7 @@ char	**get_args(char **av)
 // 	return (*is_ok = true, split);
 // }
 
-// void	cleanup(char **str)
-// {
-// 	int	i;
 
-// 	i = 0;
-// 	while (str[i++])
-// 		free(str[i]);
-// 	free(str);
-// }
 
 // void	init_stack(t_stack ***a, char **split)
 // {
@@ -119,8 +174,8 @@ char	**get_args(char **av)
 // 	i = 0;
 // 	while (split[i])
 // 	{
-// 		new = lst_new(ft_atoi(split[i]));
-// 		lst_addback(&a, new);
+		// new = lst_new(ft_atoi(split[i]));
+		// lst_addback(&a, new);
 // 		i++;
 // 	}
 // }
