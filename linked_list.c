@@ -47,12 +47,12 @@ void	lst_addback(t_stack **lst, t_stack *new)
 	last->next = new;
 }
 
-void	lst_delone(t_stack *lst)
-{
-	if (!lst)
-		return ;
-	free(lst);
-}
+// void	lst_delone(t_stack *lst)
+// {
+// 	if (!lst)
+// 		return ;
+// 	free(lst);
+// }
 
 void	lst_clear(t_stack **lst)
 {
@@ -65,7 +65,8 @@ void	lst_clear(t_stack **lst)
 	while (tmp)
 	{
 		next = tmp->next;
-		lst_delone(tmp);
+		// lst_delone(tmp);
+		free(tmp);
 		tmp = next;
 	}
 	*lst = NULL;

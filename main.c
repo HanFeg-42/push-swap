@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/20 17:25:18 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:45:57 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 int main(int ac, char **av)
 {
 	t_stack	*a;
+	t_stack *b;
 	t_stack	*current;
 
 	a = NULL;
+	b = NULL;
 	if (ac == 1 || !check_args(&a, av))
 	{
 		printf("Error\n");
 		return (1);
 	}
-
 	current = a;
 	while(current)
 	{
@@ -31,6 +32,56 @@ int main(int ac, char **av)
 		current = current->next;
 	}
 	printf("\n");
+	sa(&a, true);
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
+	ra(&a, true);
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
+	rra(&a, true);
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
+	pb(&a, &b);
+	printf("====list A ====\n");
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
+	printf("====list B ====\n");
+	current = b;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
+	sa(&a, true);
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
+	lst_clear(&a);
 	return (0);
 }
 

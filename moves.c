@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 02:47:38 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/20 17:46:19 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:15:39 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	swap(t_stack **a)
 
 	if ((*a)->next != NULL)
 	{
-		tmp = ft_lstnew((*a)->data);
+		tmp = lst_new((*a)->data);
 		(*a)->data = (*a)->next->data;
 		(*a)->next->data = tmp->data; // zidi les ***
 	}
@@ -66,7 +66,11 @@ void	push(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	tmp = *a;
+	// if (!(*a))
+	// {
+	// 	*a = *b;
+	// }
+	tmp = *b;
 	*b = (*b)->next;
 	tmp->next = *a;
 	*a = tmp;

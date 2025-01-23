@@ -1,7 +1,8 @@
 NAME	=	push_swap
 SRC	=	main.c\
 		linked_list.c\
-		parsing.c
+		parsing.c\
+		moves.c
 OBJ	=	${SRC:.c=.o}
 CC	=	cc
 CFLAGS	=	-Wall -Wextra -Werror -g

@@ -4,6 +4,7 @@ char	**get_args(char **av)
 {
 	char	*join;
 	char	*tmp;
+	char	**split;
 	int	i;
 
 	//join every arg with a space
@@ -24,14 +25,14 @@ char	**get_args(char **av)
 		free(av[i]);
 		i++;
 	}
-	tmp = ft_split(join, ' ');
-	return (free(join), tmp);
+	split = ft_split(join, ' ');
+	return (free(join), split);
 }
 
 int	is_arg_valid(char *nbr)
 {
 	int	i;
-	int	number;
+	long	number;
 
 	i = 0;
 	if (nbr[i] == '+' || nbr[i] == '-')
@@ -50,6 +51,22 @@ int	is_arg_valid(char *nbr)
 	return (true);
 }
 
+int	is_duplicated(t_stack *a, char *nbr)
+{
+	t_stack	*curr;
+
+	if (!a)
+		return (true);
+	curr = a;
+	while (curr)
+	{
+		if(curr->data == ft_atoi(nbr))
+			return (false);
+		curr = curr->next;
+	}
+	return (true);
+}
+
 int	check_args(t_stack **a, char **av)
 {
 	t_stack	*new;
@@ -65,12 +82,13 @@ int	check_args(t_stack **a, char **av)
 		//hna feeen kaywqe3 si7r wa chokran
 		if (!is_arg_valid(args[i]))
 			return (cleanup(args), lst_clear(a), false);
-		if(!is_duplicated(a, args[i]))
+		if(!is_duplicated(*a, args[i]))
 			return (cleanup(args), lst_clear(a), false);
 		new = lst_new(ft_atoi(args[i]));
 		lst_addback(a, new);
+		i++;
 	}
-	return (true);
+	return (cleanup(args), true);
 }
 
 void	cleanup(char **str)
@@ -78,8 +96,11 @@ void	cleanup(char **str)
 	int	i;
 
 	i = 0;
-	while (str[i++])
+	while (str[i])
+	{
 		free(str[i]);
+		i++;
+	}
 	free(str);
 }
 
