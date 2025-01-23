@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/23 18:45:57 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/23 23:01:32 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ int main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || !check_args(&a, av))
+	if (ac == 1)
+		return (0);
+	if (ac == 2 || !check_args(&a, av))
 	{
-		printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	current = a;
@@ -56,7 +58,42 @@ int main(int ac, char **av)
 		current = current->next;
 	}
 	printf("\n");
-	pb(&a, &b);
+	pb(&a, &b);pb(&a, &b);pb(&a, &b);
+	printf("====list A ====\n");
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
+	printf("====list B ====\n");
+	current = b;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
+sb(&b, true);
+	// rrr(&a, &b);
+	printf("====list A ====\n");
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
+	printf("====list B ====\n");
+	current = b;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
+		pa(&b, &a);pa(&b, &a);pa(&b, &a);
 	printf("====list A ====\n");
 	current = a;
 	while(current)
@@ -80,8 +117,25 @@ int main(int ac, char **av)
 		printf("%d-->", current->data);
 		current = current->next;
 	}
-	printf("\n");
+	printf("nj7t sa t3iich\n");
+	ra(&a, true);
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("nj7t ra t3iich\n");
+	rra(&a, true);
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("nj7t rra t3iich\n");
 	lst_clear(&a);
+	lst_clear(&b);
 	return (0);
 }
 

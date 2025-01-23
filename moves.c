@@ -6,22 +6,31 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 02:47:38 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/23 19:15:39 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/23 22:48:37 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// void	swap(t_stack **a)
+// {
+// 	t_stack	*tmp;
+
+// 	tmp = NULL;
+// 	tmp = lst_new((*a)->data);
+// 	(*a)->data = (*a)->next->data;
+// 	(*a)->next->data = tmp->data; // zidi les ***
+// 	free(tmp);
+// }
+
 void	swap(t_stack **a)
 {
 	t_stack	*tmp;
 
-	if ((*a)->next != NULL)
-	{
-		tmp = lst_new((*a)->data);
-		(*a)->data = (*a)->next->data;
-		(*a)->next->data = tmp->data; // zidi les ***
-	}
+	tmp = *a;
+	*a = (*a)->next;
+	tmp->next = (*a)->next;
+	(*a)->next = tmp;
 }
 
 /*=========--sa--=========--sb--============*/
@@ -41,6 +50,7 @@ void	sa(t_stack **a, int check)
 		return ;
 	if (!(*a) || !((*a)->next))
 		return ;
+	printf("machi hna\n");
 	swap(a);
 	if (check)
 		ft_putstr_fd("sa\n", 1);
@@ -55,6 +65,8 @@ void	sb(t_stack **b, int check)
 
 void	ss(t_stack **a, t_stack **b)
 {
+	if ((!a || !(*a) || !(*a)->next) || (!b || !(*b) || !(*b)->next))
+		return ;
 	sa(a, 0);
 	sb(b, 0);
 	ft_putstr_fd("ss\n", 1);
@@ -105,12 +117,16 @@ void	rotate(t_stack **a)
 
 void	ra(t_stack **a, int check)
 {
+	if (!a || !(*a) || !(*a)->next)
+		return ;
 	rotate(a);
 	if (check)
 		ft_putstr_fd("ra\n", 1);
 }
 void	rb(t_stack **b, int check)
 {
+	if (!b || !(*b) || !(*b)->next)
+		return ;
 	rotate(b);
 	if (check)
 		ft_putstr_fd("rb\n", 1);
@@ -118,6 +134,8 @@ void	rb(t_stack **b, int check)
 
 void	rr(t_stack **a, t_stack **b)
 {
+	if ((!a || !(*a) || !(*a)->next) || (!b || !(*b) || !(*b)->next))
+		return ;
 	ra(a, 0);
 	rb(b, 0);
 	ft_putstr_fd("rr\n", 1);
@@ -152,6 +170,8 @@ void	r_rotate(t_stack **a)
 }
 void	rra(t_stack **a, int check)
 {
+	if (!a || !(*a) || !(*a)->next)
+		return ;
 	r_rotate(a);
 	if (check)
 		ft_putstr_fd("rra\n", 1);
@@ -159,12 +179,16 @@ void	rra(t_stack **a, int check)
 
 void	rrb(t_stack **b, int check)
 {
+	if (!b || !(*b) || !(*b)->next)
+		return ;
 	r_rotate(b);
 	if (check)
 		ft_putstr_fd("rrb\n", 1);
 }
 void	rrr(t_stack **a, t_stack **b)
 {
+	if ((!a || !(*a) || !(*a)->next) || (!b || !(*b) || !(*b)->next))
+		return ;
 	rra(a, 0);
 	rrb(b, 0);
 	ft_putstr_fd("rrr\n", 1);
