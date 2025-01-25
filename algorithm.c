@@ -54,33 +54,52 @@ void	incr_segment(t_stack *a)
 void	phase_1(t_stack	**a, t_stack **b)
 {
 	int i;
-	t_stack *head;
 
 	i = 0;
-	head = *a;
-	while (head)
+	while (*a)
 	{
-		if (head->data < head->bubble[head->start])
+		if ((*a)->data < (*a)->bubble[(*a)->start])
 		{
 			//chii tmjnina
+			//handli awl case
 			pb(a, b);
-			if(*a && *b && (*b)->next && (*b)->next->data > (*b)->data)
-				sb(b, 1);
+			rb(b, 1);
 			incr_segment(*a);
 		}
-		else if (head->data < head->bubble[head->end])
+		else if ((*a)->data < (*a)->bubble[(*a)->end])
 		{
-			
-			// another tmjnina			
+			// another tmjnina -- awl mra handliha
+			pb(a, b);
+                        if(*a && *b && (*b)->next && (*b)->next->data > (*b)->data)
+                                sb(b, 1);
+                        incr_segment(*a);
 		}
 		else
 		{
-			// last tmjnina			
+			// last tmjnina	
+			ra(a, 1);
 		}
-		head = head->next;
+		(*a) = (*a)->next;
 	}
 }
+// zidi wahed lfunction smiha " is stack empty" it s gonna help a lot
+void	phase_2(t_stack **a, t_stack **b)
+{
+	t_stack *biggest;
 
+	while(!is_stack_empty(*b))
+	{
+		biggest = big_node(**a);
+		if (biggest->up_down)
+			pa(a, b);
+		else
+		{
+			rrb(b, 1);
+			pa(a, b);
+		}
+	}
+}
+// wa handli a zmer chmiiit rwina fhad lcode 3ndk
 void	init_gold(t_stack *lst)
 {
 	if (lst->size <= 100)
