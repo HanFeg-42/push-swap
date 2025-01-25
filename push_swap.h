@@ -22,6 +22,9 @@ typedef struct s_stack
 	struct s_stack	*next;
 	int size;
 	int *bubble;
+	int start;
+	int end;
+	int gold;
 }	t_stack;
 
 // function prototype

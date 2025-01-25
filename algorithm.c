@@ -15,9 +15,8 @@ int	*bubble_sort(t_stack **a)
 	int *arr;
 	t_stack *head;
 
+	(*a)->size = lst_size(*a);
 	head = *a;
-
-	(head)->size = lst_size(head);
 	// int siz = (head)->size;
 	arr = (int *)malloc((head)->size * sizeof(int));
 	i = 0;
@@ -44,6 +43,54 @@ int	*bubble_sort(t_stack **a)
 	return (arr);
 }
 
+void	incr_segment(t_stack *a)
+{
+	if (a->end < a->size - 1)
+		a->end++;
+	if (a->start < a->size - 2)
+		a->start++;
+}
+
+void	phase_1(t_stack	**a, t_stack **b)
+{
+	int i;
+	t_stack *head;
+
+	i = 0;
+	head = *a;
+	while (head)
+	{
+		if (head->data < head->bubble[head->start])
+		{
+			//chii tmjnina
+			pb(a, b);
+			if(*a && *b && (*b)->next && (*b)->next->data > (*b)->data)
+				sb(b, 1);
+			incr_segment(*a);
+		}
+		else if (head->data < head->bubble[head->end])
+		{
+			
+			// another tmjnina			
+		}
+		else
+		{
+			// last tmjnina			
+		}
+		head = head->next;
+	}
+}
+
+void	init_gold(t_stack *lst)
+{
+	if (lst->size <= 100)
+		lst->gold = lst->size / 6;
+	else
+		lst->gold = lst->size / 14;
+	lst->start = 0;
+	lst->end = lst->gold;
+}
+
 void    sort_stack(t_stack **a, t_stack **b)
 {
 	(void)b;
@@ -52,7 +99,11 @@ void    sort_stack(t_stack **a, t_stack **b)
 	// (*a)->size = lst_size(*a);
 	// (*a)->bubble = malloc((*a)->size);
 	int *arr = bubble_sort(a);
+	(*a)->bubble = arr;
+	init_gold(*a);
 	i = 0;
+	phase_1(a, b);
+	phase_2(a, b);
 	while(i < (*a)->size)
 	{
 		printf("%d==>",arr[i]);
