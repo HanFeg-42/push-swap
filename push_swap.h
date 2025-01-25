@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/23 18:39:18 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/25 05:47:31 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ typedef struct s_stack
 {
 	int data;
 	struct s_stack	*next;
+	int size;
+	int *bubble;
 }	t_stack;
 
 // function prototype
@@ -52,5 +54,8 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a, int check);
 void	rrb(t_stack **b, int check);
 void	rrr(t_stack **a, t_stack **b);
+
+//-----------------algo--------------------------
+void    sort_stack(t_stack **a, t_stack **b);
 
 #endif

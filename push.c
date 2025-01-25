@@ -5,10 +5,6 @@ void	push(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	// if (!(*a))
-	// {
-	// 	*a = *b;
-	// }
 	tmp = *b;
 	*b = (*b)->next;
 	tmp->next = *a;
@@ -17,14 +13,14 @@ void	push(t_stack **a, t_stack **b)
 
 void	pa(t_stack **a, t_stack **b)
 {
-	if (!b)
+	if (!b || !(*b))
 		return ;
 	push(a, b);
 	ft_putstr_fd("pa\n", 1);
 }
 void	pb(t_stack **a, t_stack **b)
 {
-	if (!a)
+	if (!a || !(*a))
 		return ;
 	push(b, a);
 	ft_putstr_fd("pb\n", 1);

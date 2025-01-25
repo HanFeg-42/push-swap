@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 17:35:18 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/23 14:35:59 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/25 04:12:53 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_list
 
 // FIRST PART
 int					ft_atoi(const char *a);
-long				ft_atol(const char *a);
+long long			ft_atol(const char *a);
 void				ft_bzero(void *s, unsigned int n);
 void				*ft_calloc(size_t nitems, size_t size);
 int					ft_isalnum(int c);

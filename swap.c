@@ -34,11 +34,8 @@ void	swap(t_stack **a)
 
 void	sa(t_stack **a, int check)
 {
-	if (!a)
+	if (!a || !(*a) || !((*a)->next))
 		return ;
-	if (!(*a) || !((*a)->next))
-		return ;
-	printf("machi hna\n");
 	swap(a);
 	if (check)
 		ft_putstr_fd("sa\n", 1);
@@ -46,7 +43,9 @@ void	sa(t_stack **a, int check)
 
 void	sb(t_stack **b, int check)
 {
-	sa(b, 0);
+	if (!b || !(*b) || !((*b)->next))
+		return ;
+	swap(b);
 	if (check)
 		ft_putstr_fd("sb\n", 1);
 }

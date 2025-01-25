@@ -45,6 +45,8 @@ int	is_arg_valid(char *nbr)
 			return (false);
 		i++;
 	}
+	if (ft_strlen(nbr) > 10)
+		return (false);
 	number = ft_atol(nbr);
 	if (number < INT_MIN || number > INT_MAX)
 		return (false);
