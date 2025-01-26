@@ -93,7 +93,7 @@ void	phase_1(t_stack	**a, t_stack **b)
 		}
 		// (*a) = (*a)->next;
 	}
-	pb(a, b);
+	pb(a, b); 
 	printf("test\n");
 	curr = *b;
 	while(curr)
