@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/25 06:20:44 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/26 23:38:36 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack *b;
-	// t_stack	*current;
+	t_stack	*current;
 
 	a = NULL;
 	b = NULL;
@@ -40,19 +40,21 @@ int main(int ac, char **av)
 	}
 	if (is_sorted(a))
 		return (1);
+
+	(a)->size = lst_size(a);
+    (a)->bubble = malloc((a)->size);
+	a->bubble[0] = 15;
+	printf("bubble[%d] = %d\n", 0, a->bubble[0]);
+	free((a)->bubble);
+
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
 	sort_stack(&a, &b);
-// 	(a)->size = lst_size(a);
-//     (a)->bubble = malloc((a)->size);
-// 	a->bubble[0] = 15;
-// 	printf("bubble[%d] = %d\n", 0, a->bubble[0]);
-// 	free((a)->bubble);
-// 	current = a;
-// 	while(current)
-// 	{
-// 		printf("%d-->", current->data);
-// 		current = current->next;
-// 	}
-// 	printf("\n");
 // 	sa(&a, true);
 // 	current = a;
 // 	while(current)

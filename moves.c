@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 02:47:38 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/23 22:48:37 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/27 00:53:49 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	sa(t_stack **a, int check)
 		return ;
 	if (!(*a) || !((*a)->next))
 		return ;
-	printf("machi hna\n");
 	swap(a);
 	if (check)
 		ft_putstr_fd("sa\n", 1);
@@ -78,10 +77,6 @@ void	push(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	// if (!(*a))
-	// {
-	// 	*a = *b;
-	// }
 	tmp = *b;
 	*b = (*b)->next;
 	tmp->next = *a;
