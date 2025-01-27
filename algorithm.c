@@ -66,11 +66,11 @@ void	phase_1(t_stack	**a, t_stack **b)
 	start = 0;
 	end = (*a)->gold;
 	int size = (*a)->size;
-	while ((*a))
+	while (lst_size(*a))
 	{
 		printf("machi hna whadi *a = %d\n", (*a)->data);
 		printf("machi hna whadi start = %d\n", start);
-		if ((*a)->data < (*a)->bubble[start])
+		if ((*a)->data <= (*a)->bubble[start])
 		{
 			//chii tmjnina
 			//handli awl case
@@ -78,22 +78,19 @@ void	phase_1(t_stack	**a, t_stack **b)
 			rb(b, 1);
 			incr_segment(&start, &end, size);
 		}
-		else if ((*a)->data < (*a)->bubble[end])
+		else if ((*a)->data <= (*a)->bubble[end])
 		{
 			// another tmjnina -- awl mra handliha
 			pb(a, b);
-			if(*a && *b && (*b)->next && (*b)->next->data > (*b)->data)
+			if(*b && (*b)->next && (*b)->next->data > (*b)->data)
 				sb(b, 1);
 			incr_segment(&start, &end, size);
 		}
 		else
-		{
-			// last tmjnina
 			ra(a, 1);
-		}
-		// (*a) = (*a)->next;
 	}
-	pb(a, b); 
+	//pb(a, b);
+	printf("machi hna whadi *a = %p\n", (*a));
 	printf("test\n");
 	curr = *b;
 	while(curr)
@@ -131,7 +128,7 @@ t_stack	*big_node(t_stack *head)
 }
 // zidi wahed lfunction smiha " is stack empty" it s gonna help a lot
 void	phase_2(t_stack **a, t_stack **b)
-{
+{exit(1);
 	t_stack *biggest;
 
 	while(*b)
