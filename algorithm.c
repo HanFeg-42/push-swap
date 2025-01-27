@@ -68,8 +68,8 @@ void	phase_1(t_stack	**a, t_stack **b)
 	int size = (*a)->size;
 	while (lst_size(*a))
 	{
-		printf("machi hna whadi *a = %d\n", (*a)->data);
-		printf("machi hna whadi start = %d\n", start);
+		// printf("hadi *a = %d\n", (*a)->data);
+		// printf("hadi start = %d\n", start);
 		if ((*a)->data <= (*a)->bubble[start])
 		{
 			//chii tmjnina
@@ -90,8 +90,8 @@ void	phase_1(t_stack	**a, t_stack **b)
 			ra(a, 1);
 	}
 	//pb(a, b);
-	printf("machi hna whadi *a = %p\n", (*a));
-	printf("test\n");
+	// printf("machi hna whadi *a = %p\n", (*a));
+	// printf("test\n");
 	curr = *b;
 	while(curr)
 	{
@@ -104,18 +104,23 @@ t_stack	*big_node(t_stack *head)
 {
 	t_stack *max;
 	t_stack *lst;
+	int size;
 	int i;
 
 	lst = head;
-	head->size = lst_size(head);
+	// printf("head = %d\n", head->data);
+	size = lst_size(head);
+	// printf("size = %d\n", size);
 	max = lst;
 	i = 0;
 	while (lst)
 	{
-		if (max->data < lst->next->data)
+		// printf("max = %d\n", max->data);
+		//printf("lst->next->data = %d\n", lst->next->data);
+		if (lst->next && max->data < lst->next->data)
 		{
 			max = lst->next;
-			if(i < head->size / 2)
+			if(i < size / 2)
 				max->up_down = 1;
 			else
 				max->up_down = 0;
@@ -123,12 +128,14 @@ t_stack	*big_node(t_stack *head)
 		lst = lst->next;
 		i++;
 	}
-	printf("max = %d\n", max->data);
+
+	//printf("max = %d\n", max->data);
 	return (max);
 }
+
 // zidi wahed lfunction smiha " is stack empty" it s gonna help a lot
 void	phase_2(t_stack **a, t_stack **b)
-{exit(1);
+{
 	t_stack *biggest;
 
 	while(*b)
@@ -141,7 +148,7 @@ void	phase_2(t_stack **a, t_stack **b)
 			rrb(b, 1);
 			pa(a, b);
 		}
-		*b = (*b)->next;
+		//*b = (*b)->next;
 	}
 }
 // wa handli a zmer chmiiit rwina fhad lcode 3ndk
@@ -180,8 +187,9 @@ void	init_bubble_size(t_stack *lst, int *arr)
 
 void    sort_stack(t_stack **a, t_stack **b)
 {
-	(void)b;
+	//(void)b;
 	int i;
+	t_stack *curr;
 
 	// (*a)->size = lst_size(*a);
 	// (*a)->bubble = malloc((*a)->size);
@@ -198,5 +206,12 @@ void    sort_stack(t_stack **a, t_stack **b)
 	printf("\n");
 	phase_1(a, b);
 	phase_2(a, b);
+		curr = *a;
+	while(curr)
+	{
+		printf("%d==>>", curr->data);
+		curr = curr->next;
+	}
+	printf("\n");
 	free(arr);
 }
