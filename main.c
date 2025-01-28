@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/28 03:59:16 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/28 04:02:52 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack *b;
-	// t_stack	*current;
+	t_stack	*current;
 
 	a = NULL;
 	b = NULL;
@@ -56,13 +56,13 @@ int main(int ac, char **av)
 	// printf("\n");
 	sort_stack(&a, &b);
 // 	sa(&a, true);
-	// current = a;
-	// while(current)
-	// {
-	// 	printf("%d-->", current->data);
-	// 	current = current->next;
-	// }
-	// printf("\n");
+	current = a;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
 // 	ra(&a, true);
 // 	current = a;
 // 	while(current)

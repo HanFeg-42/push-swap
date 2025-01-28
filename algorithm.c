@@ -68,14 +68,26 @@ void	phase_1(t_stack	**a, t_stack **b)
 		else if ((*a)->data <= (*a)->bubble[end])
 		{
 			pb(a, b);
-			if(*b && (*b)->next && (*b)->next->data > (*b)->data)
-				sb(b, 1);
+			// if(*b && (*b)->next && (*b)->next->data > (*b)->data)
+			// 	sb(b, 1);
 			incr_segment(&start, &end, size);
 		}
 		else
 			ra(a, 1);
 	}
 }
+
+void	init_position(t_stack *lst)
+{
+	lst->position = 0;
+
+	while (lst)
+	{
+		lst = lst->next;
+		lst->position++;
+	}
+}
+
 t_stack	*big_node(t_stack *lst)
 {
 	t_stack *max;
@@ -83,6 +95,7 @@ t_stack	*big_node(t_stack *lst)
 	int (i), (x);
 
 	size = lst_size(lst);
+	init_position(lst);
 	max = lst;
 	i = 0;
 	x = true;
@@ -99,7 +112,7 @@ t_stack	*big_node(t_stack *lst)
 		}
 		lst = lst->next;
 	}
-	//printf("max = %d\n", max->data);
+	printf("max = %d\n", max->data);
 	if (x)
 		max->up_down = 1;
 	return (max);
@@ -158,11 +171,20 @@ void	init_bubble_size(t_stack *lst, int *arr)
 
 void    sort_stack(t_stack **a, t_stack **b)
 {
+	t_stack *current;
+
 	int *arr = bubble_sort(a);
 	(*a)->bubble = arr;
 	init_gold(*a);
 	init_bubble_size(*a, arr);
 	phase_1(a, b);
+	current = *b;
+	while(current)
+	{
+		printf("%d-->", current->data);
+		current = current->next;
+	}
+	printf("\n");
 	phase_2(a, b);
 	free(arr);
 }

@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/25 23:03:28 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/28 06:03:14 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 	int size;
 	int *bubble;
+	int position;
 	int start;
 	int end;
 	int gold;
