@@ -68,8 +68,8 @@ void	phase_1(t_stack	**a, t_stack **b)
 		else if ((*a)->data <= (*a)->bubble[end])
 		{
 			pb(a, b);
-			// if(*b && (*b)->next && (*b)->next->data > (*b)->data)
-			// 	sb(b, 1);
+			if(*b && (*b)->next && (*b)->next->data > (*b)->data)
+				sb(b, 1);
 			incr_segment(&start, &end, size);
 		}
 		else
@@ -79,12 +79,14 @@ void	phase_1(t_stack	**a, t_stack **b)
 
 void	init_position(t_stack *lst)
 {
-	lst->position = 0;
+	int i;
 
+	i = 0;
 	while (lst)
 	{
+		lst->position = i;
 		lst = lst->next;
-		lst->position++;
+		i++;
 	}
 }
 
@@ -100,7 +102,8 @@ t_stack	*big_node(t_stack *lst)
 	i = 0;
 	x = true;
 	while (lst)
-	{	i++;
+	{
+		i++;
 		if (lst->next && max->data < lst->next->data)
 		{
 			max = lst->next;
@@ -112,7 +115,7 @@ t_stack	*big_node(t_stack *lst)
 		}
 		lst = lst->next;
 	}
-	printf("max = %d\n", max->data);
+	//printf("max = %d\n", max->data);
 	if (x)
 		max->up_down = 1;
 	return (max);
@@ -126,13 +129,14 @@ void	phase_2(t_stack **a, t_stack **b)
 	while(*b)
 	{
 		biggest = big_node(*b);
-		if (biggest->up_down)
-			pa(a, b);
-		else
+		while (biggest->data != (*b)->data)
 		{
-			rrb(b, 1);
-			pa(a, b);
+			if (biggest->up_down)
+				rb(b, 1);
+			else
+				rrb(b, 1);
 		}
+		pa(a, b);
 	}
 }
 // wa handli a zmer chmiiit rwina fhad lcode 3ndk
@@ -171,20 +175,20 @@ void	init_bubble_size(t_stack *lst, int *arr)
 
 void    sort_stack(t_stack **a, t_stack **b)
 {
-	t_stack *current;
+	// t_stack *current;
 
 	int *arr = bubble_sort(a);
 	(*a)->bubble = arr;
 	init_gold(*a);
 	init_bubble_size(*a, arr);
 	phase_1(a, b);
-	current = *b;
-	while(current)
-	{
-		printf("%d-->", current->data);
-		current = current->next;
-	}
-	printf("\n");
+	// current = *b;
+	// while(current)
+	// {
+	// 	printf("%d-->", current->data);
+	// 	current = current->next;
+	// }
+	// printf("\n");
 	phase_2(a, b);
 	free(arr);
 }
