@@ -87,7 +87,7 @@ t_stack	*big_node(t_stack *lst)
 	i = 0;
 	x = true;
 	while (lst)
-	{
+	{	i++;
 		if (lst->next && max->data < lst->next->data)
 		{
 			max = lst->next;
@@ -98,8 +98,8 @@ t_stack	*big_node(t_stack *lst)
 			x = false;
 		}
 		lst = lst->next;
-		i++;
 	}
+	//printf("max = %d\n", max->data);
 	if (x)
 		max->up_down = 1;
 	return (max);
