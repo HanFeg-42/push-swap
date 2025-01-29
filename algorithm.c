@@ -15,15 +15,13 @@ int	*bubble_sort(t_stack **a)
 	int *arr;
 	t_stack *head;
 
-	//(*a)->size = lst_size(*a);
 	head = *a;
 	arr = (int *)malloc((head)->size * sizeof(int));
 	i = 0;
 	while (head)
 	{
-		arr[i] = head->data;
+		arr[i++] = head->data;
 		head = head->next;
-		i++;
 	}
 	i = 0;
 	head = *a;
@@ -51,12 +49,11 @@ void	incr_segment(int *start, int *end, int size)
 
 void	phase_1(t_stack	**a, t_stack **b)
 {
-	int start;
-	int end;
+	int (size), (end), (start);
 
 	start = 0;
 	end = (*a)->gold;
-	int size = (*a)->size;
+	size = (*a)->size;
 	while (*a)
 	{
 		if ((*a)->data <= (*a)->bubble[start])
@@ -93,8 +90,7 @@ void	init_position(t_stack *lst)
 t_stack	*big_node(t_stack *lst)
 {
 	t_stack *max;
-	int size;
-	int (i), (x);
+	int (i), (x), (size);
 
 	size = lst_size(lst);
 	init_position(lst);
@@ -115,7 +111,6 @@ t_stack	*big_node(t_stack *lst)
 		}
 		lst = lst->next;
 	}
-	//printf("max = %d\n", max->data);
 	if (x)
 		max->up_down = 1;
 	return (max);
@@ -140,19 +135,6 @@ void	phase_2(t_stack **a, t_stack **b)
 	}
 }
 // wa handli a zmer chmiiit rwina fhad lcode 3ndk
-void	init_gold(t_stack *lst)
-{
-	while (lst)
-	{
-		if (lst->size <= 100)
-			lst->gold = lst->size / 6;
-		else
-			lst->gold = lst->size / 14;
-		lst->start = 0;
-		lst->end = lst->gold;
-		lst = lst->next;
-	}
-}
 
 void	init_bubble_size(t_stack *lst, int *arr)
 {
@@ -175,20 +157,9 @@ void	init_bubble_size(t_stack *lst, int *arr)
 
 void    sort_stack(t_stack **a, t_stack **b)
 {
-	// t_stack *current;
-
-	int *arr = bubble_sort(a);
-	(*a)->bubble = arr;
-	init_gold(*a);
-	init_bubble_size(*a, arr);
+	(*a)->bubble = bubble_sort(a);
+	init_bubble_size(*a, (*a)->bubble);
 	phase_1(a, b);
-	// current = *b;
-	// while(current)
-	// {
-	// 	printf("%d-->", current->data);
-	// 	current = current->next;
-	// }
-	// printf("\n");
 	phase_2(a, b);
-	free(arr);
+	free((*a)->bubble);
 }

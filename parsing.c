@@ -7,15 +7,13 @@ char	**get_args(char **av)
 	char	**split;
 	int	i;
 
-	//join every arg with a space
 	i = 1;
 	while (av[i])
 	{
-		av[i] = ft_strjoin(av[i], " ");//free 3afak
+		av[i] = ft_strjoin(av[i], " ");
 		i++;
 	}
 	join = ft_strdup("");
-	//joining the args to each other
 	i = 1;
 	while (av[i])
 	{
@@ -77,11 +75,10 @@ int	check_args(t_stack **a, char **av)
 
 	if (!a)
 		return (false);
-	args = get_args(av); // join and split them
+	args = get_args(av);
 	i = 0;
 	while(args[i])
 	{
-		//hna feeen kaywqe3 si7r wa chokran
 		if (!is_arg_valid(args[i]))
 			return (cleanup(args), lst_clear(a), false);
 		if(!is_duplicated(*a, args[i]))
