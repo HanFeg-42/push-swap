@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 04:50:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 04:54:06 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/29 05:44:43 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char	**get_args(char **av)
 
 int	is_arg_valid(char *nbr)
 {
-	int		i;
-	long	number;
+	int			i;
+	long long	number;
 
 	i = 0;
 	if (nbr[i] == '+' || nbr[i] == '-')

@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 05:37:27 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/29 05:56:07 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,16 @@ void	ft_swap(int *a, int *b);
 void	incr_segment(int *start, int *end, int size);
 void	init_position(t_stack *lst);
 void	init_bubble_size(t_stack *lst, int *arr);
+
+//--------------utils-----------------------------
+char		*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strdup(const char *str);
+void		ft_putstr_fd(char *s, int fd);
+int			ft_isdigit(int c);
+char		**ft_split(char const *s, char c);
+long long	ft_atol(const char *a);
+int			ft_atoi(const char *a);
+size_t		ft_strlen(const char *str);
 
 #endif
