@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 04:50:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 05:44:43 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/29 09:01:51 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,12 @@ int	check_args(t_stack **a, char **av)
 
 	if (!a)
 		return (false);
+	i = 0;
+	while (av[i])
+	{
+		if (!ft_strlen(av[i++]))
+			return (false);
+	}
 	args = get_args(av);
 	i = 0;
 	while (args[i])

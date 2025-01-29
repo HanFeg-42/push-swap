@@ -1,4 +1,5 @@
 NAME	=	push_swap
+B_NAME	=	checker
 SRC	=	main.c\
 		linked_list.c\
 		parsing.c\
