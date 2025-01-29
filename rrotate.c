@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rrotate.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/29 05:09:32 by hfegrach          #+#    #+#             */
+/*   Updated: 2025/01/29 05:16:24 by hfegrach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 //=========Reverse rotate==============
 
@@ -26,6 +38,7 @@ void	r_rotate(t_stack **a)
 	*a = last;
 	b_last->next = NULL;
 }
+
 void	rra(t_stack **a, int check)
 {
 	if (!a || !(*a) || !(*a)->next)
@@ -43,6 +56,7 @@ void	rrb(t_stack **b, int check)
 	if (check)
 		ft_putstr_fd("rrb\n", 1);
 }
+
 void	rrr(t_stack **a, t_stack **b)
 {
 	if ((!a || !(*a) || !(*a)->next) || (!b || !(*b) || !(*b)->next))

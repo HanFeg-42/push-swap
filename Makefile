@@ -3,7 +3,7 @@ SRC	=	main.c\
 		linked_list.c\
 		parsing.c\
 		rotate.c rrotate.c push.c swap.c\
-		algorithm.c
+		algorithm.c utils.c
 OBJ	=	${SRC:.c=.o}
 CC	=	cc
 CFLAGS	=	-Wall -Wextra -Werror

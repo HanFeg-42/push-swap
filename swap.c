@@ -1,15 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/29 05:09:35 by hfegrach          #+#    #+#             */
+/*   Updated: 2025/01/29 05:10:29 by hfegrach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-// void	swap(t_stack **a)
-// {
-// 	t_stack	*tmp;
-
-// 	tmp = NULL;
-// 	tmp = lst_new((*a)->data);
-// 	(*a)->data = (*a)->next->data;
-// 	(*a)->next->data = tmp->data; // zidi les ***
-// 	free(tmp);
-// }
 
 void	swap(t_stack **a)
 {
@@ -20,17 +21,6 @@ void	swap(t_stack **a)
 	tmp->next = (*a)->next;
 	(*a)->next = tmp;
 }
-
-/*=========--sa--=========--sb--============*/
-
-// void	ft_swap(int *a, int *b)
-// {
-// 	int	tmp;
-
-// 	tmp = *a;
-// 	*a = *b;
-// 	*b = tmp;
-// }
 
 void	sa(t_stack **a, int check)
 {

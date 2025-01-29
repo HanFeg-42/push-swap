@@ -6,11 +6,12 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:22:18 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/09 14:10:37 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/29 05:35:55 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
+
 
 static int	ft_countword(char const *s, char c)
 {

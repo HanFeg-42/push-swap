@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linked_list.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/29 04:49:13 by hfegrach          #+#    #+#             */
+/*   Updated: 2025/01/29 04:49:51 by hfegrach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack	*lst_new(int nbr)
@@ -10,14 +22,6 @@ t_stack	*lst_new(int nbr)
 	new->data = nbr;
 	new->next = NULL;
 	return (new);
-}
-
-void	lst_addfront(t_stack **lst, t_stack *new)
-{
-	if (!new)
-		return ;
-	new->next = *lst;
-	*lst = new;
 }
 
 t_stack	*lst_last(t_stack *lst)
@@ -34,7 +38,7 @@ t_stack	*lst_last(t_stack *lst)
 
 void	lst_addback(t_stack **lst, t_stack *new)
 {
-	t_stack *last;
+	t_stack	*last;
 
 	if (!new || !lst)
 		return ;
@@ -47,16 +51,9 @@ void	lst_addback(t_stack **lst, t_stack *new)
 	last->next = new;
 }
 
-// void	lst_delone(t_stack *lst)
-// {
-// 	if (!lst)
-// 		return ;
-// 	free(lst);
-// }
-
 void	lst_clear(t_stack **lst)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	t_stack	*next;
 
 	if (!lst)
@@ -65,7 +62,6 @@ void	lst_clear(t_stack **lst)
 	while (tmp)
 	{
 		next = tmp->next;
-		// lst_delone(tmp);
 		free(tmp);
 		tmp = next;
 	}

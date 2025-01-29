@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/29 05:09:29 by hfegrach          #+#    #+#             */
+/*   Updated: 2025/01/29 05:15:46 by hfegrach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 //------------rotate--------------
 
 void	rotate(t_stack **a)
 {
-	t_stack *last;
+	t_stack	*last;
 
 	last = lst_last(*a);
 	last->next = *a;
@@ -19,6 +31,7 @@ void	ra(t_stack **a, int check)
 	if (check)
 		ft_putstr_fd("ra\n", 1);
 }
+
 void	rb(t_stack **b, int check)
 {
 	if (!b || !(*b) || !(*b)->next)

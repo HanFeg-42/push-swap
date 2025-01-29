@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/29 04:50:34 by hfegrach          #+#    #+#             */
+/*   Updated: 2025/01/29 04:54:06 by hfegrach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 char	**get_args(char **av)
@@ -5,7 +17,7 @@ char	**get_args(char **av)
 	char	*join;
 	char	*tmp;
 	char	**split;
-	int	i;
+	int		i;
 
 	i = 1;
 	while (av[i])
@@ -29,7 +41,7 @@ char	**get_args(char **av)
 
 int	is_arg_valid(char *nbr)
 {
-	int	i;
+	int		i;
 	long	number;
 
 	i = 0;
@@ -60,7 +72,7 @@ int	is_duplicated(t_stack *a, char *nbr)
 	curr = a;
 	while (curr)
 	{
-		if(curr->data == ft_atoi(nbr))
+		if (curr->data == ft_atoi(nbr))
 			return (false);
 		curr = curr->next;
 	}
@@ -70,18 +82,18 @@ int	is_duplicated(t_stack *a, char *nbr)
 int	check_args(t_stack **a, char **av)
 {
 	t_stack	*new;
-	char **args;
-	int i;
+	char	**args;
+	int		i;
 
 	if (!a)
 		return (false);
 	args = get_args(av);
 	i = 0;
-	while(args[i])
+	while (args[i])
 	{
 		if (!is_arg_valid(args[i]))
 			return (cleanup(args), lst_clear(a), false);
-		if(!is_duplicated(*a, args[i]))
+		if (!is_duplicated(*a, args[i]))
 			return (cleanup(args), lst_clear(a), false);
 		new = lst_new(ft_atoi(args[i]));
 		lst_addback(a, new);
@@ -181,8 +193,6 @@ void	cleanup(char **str)
 // 	}
 // 	return (*is_ok = true, split);
 // }
-
-
 
 // void	init_stack(t_stack ***a, char **split)
 // {

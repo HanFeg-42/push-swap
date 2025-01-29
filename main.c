@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 03:38:56 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/29 05:18:25 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	is_sorted(t_stack *a)
 	return (true);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack	*a;
-	t_stack *b;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
@@ -40,7 +40,7 @@ int main(int ac, char **av)
 	if (is_sorted(a))
 		return (1);
 	(a)->size = lst_size(a);
-    (a)->bubble = malloc((a)->size);
+	(a)->bubble = malloc((a)->size);
 	free((a)->bubble);
 	sort_stack(&a, &b);
 	lst_clear(&a);
@@ -69,7 +69,5 @@ int main(int ac, char **av)
 //     printf("NULL\n");
 
 //     // Free allocated memory to prevent leaks
-
-
 //     return 0;
 // }

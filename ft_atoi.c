@@ -6,11 +6,12 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 17:30:51 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/25 02:46:54 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/29 05:35:47 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
+
 
 int	ft_atoi(const char *a)
 {
@@ -36,10 +37,11 @@ int	ft_atoi(const char *a)
 	}
 	return ((int)(sign * res));
 }
+
 long long	ft_atol(const char *a)
 {
-	int		i;
-	int     sign;
+	int			i;
+	int			sign;
 	long long	res;
 
 	i = 0;

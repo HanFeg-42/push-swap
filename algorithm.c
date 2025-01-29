@@ -6,19 +6,19 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 03:49:08 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 04:07:11 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/29 04:43:18 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(int *a, int *b)
+void	sort_stack(t_stack **a, t_stack **b)
 {
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
+	(*a)->bubble = bubble_sort(*a);
+	init_bubble_size(*a, (*a)->bubble);
+	phase_1(a, b);
+	phase_2(a, b);
+	free((*a)->bubble);
 }
 
 int	*bubble_sort(t_stack *a)
@@ -50,17 +50,11 @@ int	*bubble_sort(t_stack *a)
 	return (arr);
 }
 
-void	incr_segment(int *start, int *end, int size)
-{
-	if (*end < size - 1)
-		(*end)++;
-	if (*start < size - 2)
-		(*start)++;
-}
-
 void	phase_1(t_stack	**a, t_stack **b)
 {
-	int (size), (end), (start);
+	int	size;
+	int	end;
+	int	start;
 
 	start = 0;
 	end = (*a)->gold;
@@ -76,7 +70,7 @@ void	phase_1(t_stack	**a, t_stack **b)
 		else if ((*a)->data <= (*a)->bubble[end])
 		{
 			pb(a, b);
-			if(*b && (*b)->next && (*b)->next->data > (*b)->data)
+			if (*b && (*b)->next && (*b)->next->data > (*b)->data)
 				sb(b, 1);
 			incr_segment(&start, &end, size);
 		}
@@ -85,22 +79,9 @@ void	phase_1(t_stack	**a, t_stack **b)
 	}
 }
 
-void	init_position(t_stack *lst)
-{
-	int i;
-
-	i = 0;
-	while (lst)
-	{
-		lst->position = i;
-		lst = lst->next;
-		i++;
-	}
-}
-
 t_stack	*big_node(t_stack *lst)
 {
-	t_stack *max;
+	t_stack	*max;
 
 	init_position(lst);
 	max = lst;
@@ -108,54 +89,25 @@ t_stack	*big_node(t_stack *lst)
 	{
 		if (lst->next && max->data < lst->next->data)
 			max = lst->next;
-
 		lst = lst->next;
 	}
 	return (max);
 }
 
-// zidi wahed lfunction smiha " is stack empty" it s gonna help a lot
 void	phase_2(t_stack **a, t_stack **b)
 {
-	t_stack *biggest;
+	t_stack	*biggest;
 
 	while (*b)
 	{
 		biggest = big_node(*b);
 		while (biggest->data != (*b)->data)
 		{
-			if(biggest->position < lst_size(*b) / 2)
+			if (biggest->position < lst_size(*b) / 2)
 				rb(b, 1);
 			else
 				rrb(b, 1);
 		}
 		pa(a, b);
 	}
-}
-// wa handli a zmer chmiiit rwina fhad lcode 3ndk
-
-void	init_bubble_size(t_stack *lst, int *arr)
-{
-	int	size;
-
-	size = lst_size(lst);
-	while (lst)
-	{
-		if (lst->size <= 100)
-			lst->gold = lst->size / 6;
-		else
-			lst->gold = lst->size / 14;
-		lst->bubble = arr;
-		lst->size = size;
-		lst = lst->next;
-	}
-}
-
-void	sort_stack(t_stack **a, t_stack **b)
-{
-	(*a)->bubble = bubble_sort(*a);
-	init_bubble_size(*a, (*a)->bubble);
-	phase_1(a, b);
-	phase_2(a, b);
-	free((*a)->bubble);
 }
