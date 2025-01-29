@@ -1,21 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/29 03:49:08 by hfegrach          #+#    #+#             */
+/*   Updated: 2025/01/29 04:07:11 by hfegrach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void    ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
 }
 
-int	*bubble_sort(t_stack **a)
+int	*bubble_sort(t_stack *a)
 {
-	int (i), (j);
-	int *arr;
-	t_stack *head;
+	int		*arr;
+	t_stack	*head;
+	int		i;
+	int		j;
 
-	head = *a;
+	head = a;
 	arr = (int *)malloc((head)->size * sizeof(int));
 	i = 0;
 	while (head)
@@ -24,17 +37,15 @@ int	*bubble_sort(t_stack **a)
 		head = head->next;
 	}
 	i = 0;
-	head = *a;
-	while (i <= head->size)
+	while (i++ <= a->size)
 	{
 		j = 0;
-		while (j < head->size - 1)
+		while (j < a->size - 1)
 		{
 			if (arr[j] > arr[j + 1])
 				ft_swap(&arr[j], &arr[j + 1]);
 			j++;
 		}
-		i++;
 	}
 	return (arr);
 }
@@ -53,7 +64,7 @@ void	phase_1(t_stack	**a, t_stack **b)
 
 	start = 0;
 	end = (*a)->gold;
-	size = (*a)->size;
+	size = lst_size(*a);
 	while (*a)
 	{
 		if ((*a)->data <= (*a)->bubble[start])
@@ -90,29 +101,16 @@ void	init_position(t_stack *lst)
 t_stack	*big_node(t_stack *lst)
 {
 	t_stack *max;
-	int (i), (x), (size);
 
-	size = lst_size(lst);
 	init_position(lst);
 	max = lst;
-	i = 0;
-	x = true;
 	while (lst)
 	{
-		i++;
 		if (lst->next && max->data < lst->next->data)
-		{
 			max = lst->next;
-			if(i < size / 2)
-				max->up_down = 1;
-			else
-				max->up_down = 0;
-			x = false;
-		}
+
 		lst = lst->next;
 	}
-	if (x)
-		max->up_down = 1;
 	return (max);
 }
 
@@ -121,12 +119,12 @@ void	phase_2(t_stack **a, t_stack **b)
 {
 	t_stack *biggest;
 
-	while(*b)
+	while (*b)
 	{
 		biggest = big_node(*b);
 		while (biggest->data != (*b)->data)
 		{
-			if (biggest->up_down)
+			if(biggest->position < lst_size(*b) / 2)
 				rb(b, 1);
 			else
 				rrb(b, 1);
@@ -138,7 +136,7 @@ void	phase_2(t_stack **a, t_stack **b)
 
 void	init_bubble_size(t_stack *lst, int *arr)
 {
-	int size;
+	int	size;
 
 	size = lst_size(lst);
 	while (lst)
@@ -147,17 +145,15 @@ void	init_bubble_size(t_stack *lst, int *arr)
 			lst->gold = lst->size / 6;
 		else
 			lst->gold = lst->size / 14;
-		lst->start = 0;
-		lst->end = lst->gold;
 		lst->bubble = arr;
 		lst->size = size;
 		lst = lst->next;
 	}
 }
 
-void    sort_stack(t_stack **a, t_stack **b)
+void	sort_stack(t_stack **a, t_stack **b)
 {
-	(*a)->bubble = bubble_sort(a);
+	(*a)->bubble = bubble_sort(*a);
 	init_bubble_size(*a, (*a)->bubble);
 	phase_1(a, b);
 	phase_2(a, b);
