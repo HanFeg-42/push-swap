@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 05:56:07 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/29 09:19:23 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_stack
 // function prototype
 //------parcing.c-----------------------------------
 int		check_args(t_stack **a, char **av);
+int		is_sorted(t_stack *a);
 void	cleanup(char **str);
 //-------linked_list---------------------------------
 t_stack	*lst_new(int nbr);
