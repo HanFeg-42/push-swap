@@ -6,12 +6,27 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 17:30:51 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 05:57:56 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:40:36 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (!n)
+		return (0);
+	while (s1[i] && s2[i] && i < n && s1[i] == s2[i])
+	{
+		if (i == n - 1)
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
 
 int	ft_atoi(const char *a)
 {

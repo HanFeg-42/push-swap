@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 09:19:23 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:45:24 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,12 @@ char		**ft_split(char const *s, char c);
 long long	ft_atol(const char *a);
 int			ft_atoi(const char *a);
 size_t		ft_strlen(const char *str);
+int     ft_strncmp(const char *s1, const char *s2, size_t n);
+
+//-------------gnl----------------------------
+char    *get_next_line(int fd);
+void    check_move(char *line, t_stack **a, t_stack **b);
+void    apply_moves(t_stack **a, t_stack **b);
+
 
 #endif
