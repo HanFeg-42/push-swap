@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 08:24:05 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/30 11:32:21 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/30 13:48:56 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,9 @@ void	apply_moves(t_stack **a, t_stack **b)
 	line = get_next_line(0);
 	while (line)
 	{
-
-		//read using get_next_line move bye move
 		check_move(line, a, b);
 		free(line);
 		line = get_next_line(0);
-		// {
-		//		if (strcmp(line, "sa"))
-		//			sa(x, y);
-		//		else if ..
-		//		....
-		// } whithout writing ok
 	}
 	free(line);
 }
@@ -76,9 +68,9 @@ int	main(int ac, char **av)
 	}
 	apply_moves(&a, &b);
 	if (is_sorted(a))
-		ft_putstr_fd("OK", 1);
+		ft_putstr_fd("OK\n", 1);
 	else
-		ft_putstr_fd("KO", 1);
+		ft_putstr_fd("KO\n", 1);
 	lst_clear(&a);
 	lst_clear(&b);
 	return (0);

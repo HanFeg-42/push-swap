@@ -6,21 +6,67 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 08:59:40 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/30 13:47:36 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_stack *a)
+t_stack	*small_node(t_stack *lst)
 {
-	while (a && a->next)
+	t_stack	*min;
+
+	init_position(lst);
+	min = lst;
+	while (lst)
 	{
-		if (a->data > a->next->data)
-			return (false);
-		a = a->next;
+		if (lst->next && min->data > lst->next->data)
+			min = lst->next;
+		lst = lst->next;
 	}
-	return (true);
+	return (min);
+}
+
+void	push_small_node(t_stack **a, t_stack **b)
+{
+	t_stack	*smallest;
+
+	smallest = small_node(*a);
+	while (smallest->data != (*a)->data)
+	{
+		if (smallest->position < lst_size(*a) / 2)
+			ra(a, 1);
+		else
+			rra(a, 1);
+	}
+	pb(a, b, 1);
+}
+
+void	sort_less_than_five(t_stack **a,t_stack **b)
+{
+	if (lst_size(*a) == 2)
+	{
+		if (!is_sorted(*a))
+			sa(a, 1);
+	}
+	else if (lst_size(*a) <= 5)
+	{
+		push_small_node(a, b);
+		sort_less_than_five(a, b);
+		pa(a, b, 1);
+	}
+	// if (lst_size(*a) == 3)
+	// {
+	// 	push_small_node(a, b);
+	// 	sort_less_than_five(a, b);
+	// 	pa(a, b, 1);
+	// }
+	// if (lst_size(*a) == 4)
+	// {
+	// 	push_small_node(a, b);
+	// 	sort_less_than_five(a, b);
+	// 	pa(a, b, 1);
+	// }
 }
 
 int	main(int ac, char **av)
@@ -42,9 +88,9 @@ int	main(int ac, char **av)
 	a->size = lst_size(a);
 	a->bubble = malloc(a->size);
 	free(a->bubble);
-	// if (a->size <= 5)
-	// 	sort_less_than_five(&a, &b);
-	// else
+	if (a->size <= 5)
+		sort_less_than_five(&a, &b);
+	else
 		sort_stack(&a, &b);
 	lst_clear(&a);
 	lst_clear(&b);
