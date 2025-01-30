@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 05:09:32 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 05:16:24 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/30 11:30:04 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,12 @@ void	rrb(t_stack **b, int check)
 		ft_putstr_fd("rrb\n", 1);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int check)
 {
 	if ((!a || !(*a) || !(*a)->next) || (!b || !(*b) || !(*b)->next))
 		return ;
 	rra(a, 0);
 	rrb(b, 0);
-	ft_putstr_fd("rrr\n", 1);
+	if (check)
+		ft_putstr_fd("rrr\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 16:45:24 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/30 11:31:37 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # include <stdint.h>
 # include <fcntl.h>
 # include <stdbool.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 typedef struct s_stack
 {
@@ -47,15 +51,15 @@ int		lst_size(t_stack *lst);
 //-------------------moves-----------------------
 void	sa(t_stack **a, int check);
 void	sb(t_stack **b, int check);
-void	ss(t_stack **a, t_stack **b);
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **a, t_stack **b);
+void	ss(t_stack **a, t_stack **b, int check);
+void	pa(t_stack **a, t_stack **b, int check);
+void	pb(t_stack **a, t_stack **b, int check);
 void	ra(t_stack **a, int check);
 void	rb(t_stack **b, int check);
-void	rr(t_stack **a, t_stack **b);
+void	rr(t_stack **a, t_stack **b, int check);
 void	rra(t_stack **a, int check);
 void	rrb(t_stack **b, int check);
-void	rrr(t_stack **a, t_stack **b);
+void	rrr(t_stack **a, t_stack **b, int check);
 
 //-----------------algo--------------------------
 void	sort_stack(t_stack **a, t_stack **b);
@@ -78,12 +82,14 @@ char		**ft_split(char const *s, char c);
 long long	ft_atol(const char *a);
 int			ft_atoi(const char *a);
 size_t		ft_strlen(const char *str);
-int     ft_strncmp(const char *s1, const char *s2, size_t n);
+int     	ft_strncmp(const char *s1, const char *s2, size_t n);
+char		*ft_strchr(const char *s, int c);
 
 //-------------gnl----------------------------
 char    *get_next_line(int fd);
 void    check_move(char *line, t_stack **a, t_stack **b);
 void    apply_moves(t_stack **a, t_stack **b);
+int		is_sorted(t_stack *a);
 
 
 #endif

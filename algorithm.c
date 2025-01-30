@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 03:49:08 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 04:43:18 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/30 11:31:52 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ void	phase_1(t_stack	**a, t_stack **b)
 	{
 		if ((*a)->data <= (*a)->bubble[start])
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			rb(b, 1);
 			incr_segment(&start, &end, size);
 		}
 		else if ((*a)->data <= (*a)->bubble[end])
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			if (*b && (*b)->next && (*b)->next->data > (*b)->data)
 				sb(b, 1);
 			incr_segment(&start, &end, size);
@@ -108,6 +108,6 @@ void	phase_2(t_stack **a, t_stack **b)
 			else
 				rrb(b, 1);
 		}
-		pa(a, b);
+		pa(a, b, 1);
 	}
 }

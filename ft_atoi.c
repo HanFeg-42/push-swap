@@ -6,11 +6,31 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 17:30:51 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 16:40:36 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/30 11:22:28 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted(t_stack *a)
+{
+	while (a && a->next)
+	{
+		if (a->data > a->next->data)
+			return (false);
+		a = a->next;
+	}
+	return (true);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s && *s != (unsigned char)c)
+		s++;
+	if (*s == (unsigned char)c)
+		return ((char *)s);
+	return (NULL);
+}
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
