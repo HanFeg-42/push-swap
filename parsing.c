@@ -6,11 +6,25 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 04:50:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 09:01:51 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/30 14:13:56 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_spaces(char *av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (av[i] != ' ' && av[i] != '\t')
+			return (true);
+		i++;
+	}
+	return (false);
+}
 
 char	**get_args(char **av)
 {
@@ -79,6 +93,19 @@ int	is_duplicated(t_stack *a, char *nbr)
 	return (true);
 }
 
+int	not_OK(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (!ft_strlen(av[i]) || !check_spaces(av[i]))
+			return (false);
+		i++;
+	}
+}
+
 int	check_args(t_stack **a, char **av)
 {
 	t_stack	*new;
@@ -87,12 +114,8 @@ int	check_args(t_stack **a, char **av)
 
 	if (!a)
 		return (false);
-	i = 0;
-	while (av[i])
-	{
-		if (!ft_strlen(av[i++]))
-			return (false);
-	}
+	if (!not_OK(av))
+		return (false);
 	args = get_args(av);
 	i = 0;
 	while (args[i])
@@ -112,6 +135,8 @@ void	cleanup(char **str)
 {
 	int	i;
 
+	if (!str)
+		return ;
 	i = 0;
 	while (str[i])
 	{
