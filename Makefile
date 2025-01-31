@@ -13,7 +13,8 @@ B_SRC	=	bonus/main.c\
 
 OBJ	=	${SRC:.c=.o}
 CC	=	cc
-CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS	=	-Wall -Wextra -Werror
+# -fsanitize=address -g3
 # LIBFT_DIR = ./libft
 # LIBFT	=	libft/libft.a
 BONUS_DIR	=	./bonus

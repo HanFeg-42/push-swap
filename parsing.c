@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 04:50:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/30 14:13:56 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/31 00:47:04 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	is_arg_valid(char *nbr)
 			return (false);
 		i++;
 	}
-	if (ft_strlen(nbr) > 10)
+	if ((ft_strlen(nbr) > 11 && ft_atoi(nbr) == -1))
 		return (false);
 	number = ft_atol(nbr);
 	if (number < INT_MIN || number > INT_MAX)
@@ -104,6 +104,7 @@ int	not_OK(char **av)
 			return (false);
 		i++;
 	}
+	return (true);
 }
 
 int	check_args(t_stack **a, char **av)

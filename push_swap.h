@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/30 11:31:37 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/31 00:38:19 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_stack
 int		check_args(t_stack **a, char **av);
 int		is_sorted(t_stack *a);
 void	cleanup(char **str);
+int		not_OK(char **av);
 //-------linked_list---------------------------------
 t_stack	*lst_new(int nbr);
 t_stack	*lst_last(t_stack *lst);
