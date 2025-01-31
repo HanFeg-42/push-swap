@@ -29,12 +29,9 @@ t_stack	*small_node(t_stack *lst)
 
 void	push_small_node(t_stack **a, t_stack **b)
 {
-	t_stack	*smallest;
-
-	smallest = small_node(*a);
-	while (smallest->data != (*a)->data)
+	while (small_node(*a)->data != (*a)->data)
 	{
-		if (smallest->position < lst_size(*a) / 2)
+		if (small_node(*a)->position < lst_size(*a) / 2)
 			ra(a, 1);
 		else
 			rra(a, 1);
@@ -49,13 +46,22 @@ void	sort_less_than_five(t_stack **a,t_stack **b)
 		if (!is_sorted(*a))
 			sa(a, 1);
 	}
-	else if (lst_size(*a) <= 5)
+	else if (lst_size(*a) == 4 || lst_size(*a) == 5)
 	{
 		if (is_sorted(*a))
 			return ;
 		push_small_node(a, b);
 		sort_less_than_five(a, b);
 		pa(a, b, 1);
+	}
+	else if (lst_size(*a) == 3)
+	{
+		if (big_node(*a)->data == (*a)->data)
+			ra(a, 1);
+		else if (big_node(*a)->data != lst_last(*a)->data)
+			rra(a, 1);		
+		if (!is_sorted(*a))
+			sa(a, 1);
 	}
 }
 
