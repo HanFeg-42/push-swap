@@ -1,50 +1,25 @@
-NAME	=	push_swap
-B_NAME	=	checker
-SRC	=	main.c\
-		linked_list.c\
-		parsing.c\
-		rotate.c rrotate.c push.c swap.c\
-		algorithm.c utils.c utils2.c ft_atoi.c ft_split.c
-B_SRC	=	bonus/main.c\
-                linked_list.c\
-                parsing.c\
-                rotate.c rrotate.c push.c swap.c\
-                ft_atoi.c ft_split.c utils.c utils2.c get_next_line.c
+NAME		=	push_swap
+BONUS_NAME	=	checker
+CC		=	cc
+CFLAGS		=	-Wall -Wextra -Werror
+RM		=	rm -f
+SRC		=	 algorithm.c ft_atoi.c     push.c             push_swap.c   rrotate.c  utils2.c  ft_split.c  linked_list.c    parsing.c   rotate.c   swap.c     utils.c
+B_SRC		=	push_swap_bonus.c  ft_atoi.c     push.c    rrotate.c  utils2.c  ft_split.c  linked_list.c    parsing.c   rotate.c   swap.c     utils.c get_next_line.c
 
-OBJ	=	${SRC:.c=.o}
-CC	=	cc
-CFLAGS	=	-Wall -Wextra -Werror
-# -fsanitize=address -g3
-# LIBFT_DIR = ./libft
-# LIBFT	=	libft/libft.a
-BONUS_DIR	=	./bonus
-
-
-#rules
+OBJ		=	${SRC:.c=.o}
+B_OBJ		=	${B_SRC:.c=.o}
 
 all: $(NAME)
 
-# ma3rftch kindir n compiler libft
-bonus: $(B_NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+bonus: $(BONUS_NAME)
 
-$(B_NAME): $(B_SRC)
-	@$(CC) $(CFLAGS) $(B_SRC) -o $(B_NAME)
-	@echo "bonus compiled successfully"
-
-# $(NAME): $(SRC)
-# 	@$(MAKE) -C $(LIBFT_DIR)
-# 	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) -o $(NAME)
-# 	@echo "compiled successfully"
-
-$(NAME): $(SRC)
-	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
-	@echo "comiled successfully"
-
+$(BONUS_NAME): $(B_OBJ)
+	$(CC) $(CFLAGS) $(B_OBJ) -o $(BONUS_NAME)
 clean:
-
-# fclean:
-# 	@$(MAKE) -C $(LIBFT_DIR) fclean
-# 	@rm $(NAME)
-
+	$(RM) $(OBJ) $(B_OBJ)
+fclean: clean
+	$(RM) $(NAME) $(BONUS_NAME)
 re: fclean all
-
+.PHONY: clean all fclean bonus re

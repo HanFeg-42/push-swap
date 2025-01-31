@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/31 01:17:03 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:28:54 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,22 +51,12 @@ void	sort_less_than_five(t_stack **a,t_stack **b)
 	}
 	else if (lst_size(*a) <= 5)
 	{
+		if (is_sorted(*a))
+			return ;
 		push_small_node(a, b);
 		sort_less_than_five(a, b);
 		pa(a, b, 1);
 	}
-	// if (lst_size(*a) == 3)
-	// {
-	// 	push_small_node(a, b);
-	// 	sort_less_than_five(a, b);
-	// 	pa(a, b, 1);
-	// }
-	// if (lst_size(*a) == 4)
-	// {
-	// 	push_small_node(a, b);
-	// 	sort_less_than_five(a, b);
-	// 	pa(a, b, 1);
-	// }
 }
 
 int	main(int ac, char **av)
