@@ -6,13 +6,13 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 11:39:28 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 16:48:32 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:43:15 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-char	*ft_strjoin_(char *s1, char *s2)
+static char	*ft_strjoin_(char *s1, char *s2)
 {
 	char	*join;
 
@@ -41,7 +41,7 @@ char	*ft_strjoin_(char *s1, char *s2)
 	return (join);
 }
 
-void	fill_in_save(int fd, ssize_t *rd, char **save, char **buff)
+static void	fill_in_save(int fd, ssize_t *rd, char **save, char **buff)
 {
 	while (1)
 	{
@@ -58,7 +58,7 @@ void	fill_in_save(int fd, ssize_t *rd, char **save, char **buff)
 	}
 }
 
-char	*read_line(char **save, ssize_t rd)
+static char	*read_line(char **save, ssize_t rd)
 {
 	char	*line;
 	char	*new;

@@ -6,11 +6,11 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 08:24:05 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/01 11:12:49 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:33:55 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	check_move(char *line, t_stack **a, t_stack **b)
 {

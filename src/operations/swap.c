@@ -1,52 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/29 05:09:29 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/30 11:30:28 by hfegrach         ###   ########.fr       */
+/*   Created: 2025/01/29 05:09:35 by hfegrach          #+#    #+#             */
+/*   Updated: 2025/02/01 13:35:00 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-//------------rotate--------------
+#include "../../push_swap.h"
 
-void	rotate(t_stack **a)
+void	swap(t_stack **a)
 {
-	t_stack	*last;
+	t_stack	*tmp;
 
-	last = lst_last(*a);
-	last->next = *a;
+	tmp = *a;
 	*a = (*a)->next;
-	last->next->next = NULL;
+	tmp->next = (*a)->next;
+	(*a)->next = tmp;
 }
 
-void	ra(t_stack **a, int check)
+void	sa(t_stack **a, int check)
 {
-	if (!a || !(*a) || !(*a)->next)
+	if (!a || !(*a) || !((*a)->next))
 		return ;
-	rotate(a);
+	swap(a);
 	if (check)
-		ft_putstr_fd("ra\n", 1);
+		ft_putstr_fd("sa\n", 1);
 }
 
-void	rb(t_stack **b, int check)
+void	sb(t_stack **b, int check)
 {
-	if (!b || !(*b) || !(*b)->next)
+	if (!b || !(*b) || !((*b)->next))
 		return ;
-	rotate(b);
+	swap(b);
 	if (check)
-		ft_putstr_fd("rb\n", 1);
+		ft_putstr_fd("sb\n", 1);
 }
 
-void	rr(t_stack **a, t_stack **b, int check)
+void	ss(t_stack **a, t_stack **b, int check)
 {
 	if ((!a || !(*a) || !(*a)->next) || (!b || !(*b) || !(*b)->next))
 		return ;
-	ra(a, 0);
-	rb(b, 0);
+	sa(a, 0);
+	sb(b, 0);
 	if (check)
-		ft_putstr_fd("rr\n", 1);
+		ft_putstr_fd("ss\n", 1);
 }

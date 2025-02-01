@@ -6,11 +6,11 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 04:49:13 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 04:49:51 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:34:05 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_stack	*lst_new(int nbr)
 {
@@ -80,11 +80,3 @@ int	lst_size(t_stack *lst)
 	}
 	return (len);
 }
-
-//TO-DO => ----------------------------lst_new -/
-//TO-DO => ----------------------------lst_addfront -/
-//TO-DO => ----------------------------lst_addback -/
-//TO-DO => ----------------------------lst_last-/
-//TO-DO => ----------------------------lst_clear-/
-//TO-DO => ----------------------------lst_size -/
-//TO-DO => ----------------------------lst_delone-/

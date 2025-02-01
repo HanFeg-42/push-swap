@@ -6,11 +6,11 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:22:18 by marvin            #+#    #+#             */
-/*   Updated: 2025/02/01 09:53:40 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:37:55 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	ft_countword(char const *s, char c)
 {

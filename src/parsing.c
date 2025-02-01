@@ -6,11 +6,11 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 04:50:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/01 09:31:24 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:34:16 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 char	**get_args(char **av)
 {

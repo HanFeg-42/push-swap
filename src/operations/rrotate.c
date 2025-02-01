@@ -6,12 +6,11 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 05:09:32 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/30 11:30:04 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:34:55 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-//=========Reverse rotate==============
+#include "../../push_swap.h"
 
 t_stack	*lst_blast(t_stack *lst)
 {

@@ -6,12 +6,11 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 05:09:25 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/30 11:29:08 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:34:38 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-/*=========--pa--=====--pb--===========*/
+#include "../../push_swap.h"
 
 void	push(t_stack **a, t_stack **b)
 {

@@ -6,20 +6,21 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 04:41:08 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/29 05:23:17 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:35:40 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-size_t	ft_strlen(const char *str)
+int	is_sorted(t_stack *a)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	while (a && a->next)
+	{
+		if (a->data > a->next->data)
+			return (false);
+		a = a->next;
+	}
+	return (true);
 }
 
 void	ft_swap(int *a, int *b)
