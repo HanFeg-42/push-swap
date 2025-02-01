@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 08:24:05 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/01 13:33:55 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 19:24:50 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	apply_moves(&a, &b);
-	if (is_sorted(a))
+	if (is_sorted(a) && b == NULL)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
