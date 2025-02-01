@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/01 09:33:34 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 11:13:18 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char		*ft_strchr(const char *s, int c);
 
 //-------------gnl----------------------------
 char		*get_next_line(int fd);
-void		check_move(char *line, t_stack **a, t_stack **b);
+int			check_move(char *line, t_stack **a, t_stack **b);
 void		apply_moves(t_stack **a, t_stack **b);
 int			is_sorted(t_stack *a);
 

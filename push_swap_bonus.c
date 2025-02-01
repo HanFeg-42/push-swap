@@ -6,13 +6,13 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 08:24:05 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/31 15:53:21 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 11:12:49 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_move(char *line, t_stack **a, t_stack **b)
+int	check_move(char *line, t_stack **a, t_stack **b)
 {
 	if (!ft_strncmp(line, "sa\n", 3))
 		sa(a, 0);
@@ -36,6 +36,9 @@ void	check_move(char *line, t_stack **a, t_stack **b)
 		rrb(b, 0);
 	else if (!ft_strncmp(line, "rrr\n", 4))
 		rrr(a, b, 0);
+	else
+		return (false);
+	return (true);
 }
 
 void	apply_moves(t_stack **a, t_stack **b)
@@ -45,7 +48,14 @@ void	apply_moves(t_stack **a, t_stack **b)
 	line = get_next_line(0);
 	while (line)
 	{
-		check_move(line, a, b);
+		if (!check_move(line, a, b))
+		{
+			ft_putstr_fd("Error\n", 2);
+			lst_clear(a);
+			lst_clear(b);
+			free(line);
+			exit(1);
+		}
 		free(line);
 		line = get_next_line(0);
 	}
