@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/31 15:28:54 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 09:28:29 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	push_small_node(t_stack **a, t_stack **b)
 	pb(a, b, 1);
 }
 
-void	sort_less_than_five(t_stack **a,t_stack **b)
+void	sort_less_than_five(t_stack **a, t_stack **b)
 {
 	if (lst_size(*a) == 2)
 	{
@@ -59,7 +59,7 @@ void	sort_less_than_five(t_stack **a,t_stack **b)
 		if (big_node(*a)->data == (*a)->data)
 			ra(a, 1);
 		else if (big_node(*a)->data != lst_last(*a)->data)
-			rra(a, 1);		
+			rra(a, 1);
 		if (!is_sorted(*a))
 			sa(a, 1);
 	}
@@ -73,14 +73,14 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1)
-		return (0);
+		return (1);
 	if (ac < 2 || !check_args(&a, av))
 	{
 		ft_putstr_fd("Error\n", 2);
-		return (1);
+		return (2);
 	}
 	if (is_sorted(a))
-		return (lst_clear(&a), lst_clear(&b), 1);
+		return (lst_clear(&a), lst_clear(&b), 3);
 	a->size = lst_size(a);
 	a->bubble = malloc(a->size);
 	free(a->bubble);

@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/01/31 16:43:21 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/01 09:33:34 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,39 +39,39 @@ typedef struct s_stack
 
 // function prototype
 //------parcing.c-----------------------------------
-int		check_args(t_stack **a, char **av);
-int		is_sorted(t_stack *a);
-void	cleanup(char **str);
-int		not_OK(char **av);
+int			check_args(t_stack **a, char **av);
+int			is_sorted(t_stack *a);
+void		cleanup(char **str);
+int			is_exist(char **av);
 //-------linked_list---------------------------------
-t_stack	*lst_new(int nbr);
-t_stack	*lst_last(t_stack *lst);
-void	lst_addback(t_stack **lst, t_stack *new);
-void	lst_clear(t_stack **lst);
-int		lst_size(t_stack *lst);
+t_stack		*lst_new(int nbr);
+t_stack		*lst_last(t_stack *lst);
+void		lst_addback(t_stack **lst, t_stack *new);
+void		lst_clear(t_stack **lst);
+int			lst_size(t_stack *lst);
 //-------------------moves-----------------------
-void	sa(t_stack **a, int check);
-void	sb(t_stack **b, int check);
-void	ss(t_stack **a, t_stack **b, int check);
-void	pa(t_stack **a, t_stack **b, int check);
-void	pb(t_stack **a, t_stack **b, int check);
-void	ra(t_stack **a, int check);
-void	rb(t_stack **b, int check);
-void	rr(t_stack **a, t_stack **b, int check);
-void	rra(t_stack **a, int check);
-void	rrb(t_stack **b, int check);
-void	rrr(t_stack **a, t_stack **b, int check);
+void		sa(t_stack **a, int check);
+void		sb(t_stack **b, int check);
+void		ss(t_stack **a, t_stack **b, int check);
+void		pa(t_stack **a, t_stack **b, int check);
+void		pb(t_stack **a, t_stack **b, int check);
+void		ra(t_stack **a, int check);
+void		rb(t_stack **b, int check);
+void		rr(t_stack **a, t_stack **b, int check);
+void		rra(t_stack **a, int check);
+void		rrb(t_stack **b, int check);
+void		rrr(t_stack **a, t_stack **b, int check);
 
 //-----------------algo--------------------------
-void	sort_stack(t_stack **a, t_stack **b);
-int		*bubble_sort(t_stack *a);
-void	phase_1(t_stack	**a, t_stack **b);
-t_stack	*big_node(t_stack *lst);
-void	phase_2(t_stack **a, t_stack **b);
-void	ft_swap(int *a, int *b);
-void	incr_segment(int *start, int *end, int size);
-void	init_position(t_stack *lst);
-void	init_bubble_size(t_stack *lst, int *arr);
+void		sort_stack(t_stack **a, t_stack **b);
+int			*bubble_sort(t_stack *a);
+void		phase_1(t_stack	**a, t_stack **b);
+t_stack		*big_node(t_stack *lst);
+void		phase_2(t_stack **a, t_stack **b);
+void		ft_swap(int *a, int *b);
+void		incr_segment(int *start, int *end, int size);
+void		init_position(t_stack *lst);
+void		init_bubble_size(t_stack *lst, int *arr);
 
 //--------------utils-----------------------------
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -83,14 +83,13 @@ char		**ft_split(char const *s, char c);
 long long	ft_atol(const char *a);
 int			ft_atoi(const char *a);
 size_t		ft_strlen(const char *str);
-int     	ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strchr(const char *s, int c);
 
 //-------------gnl----------------------------
-char    *get_next_line(int fd);
-void    check_move(char *line, t_stack **a, t_stack **b);
-void    apply_moves(t_stack **a, t_stack **b);
-int		is_sorted(t_stack *a);
-
+char		*get_next_line(int fd);
+void		check_move(char *line, t_stack **a, t_stack **b);
+void		apply_moves(t_stack **a, t_stack **b);
+int			is_sorted(t_stack *a);
 
 #endif
