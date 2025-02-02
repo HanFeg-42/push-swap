@@ -1,7 +1,7 @@
 NAME		=	push_swap
 BONUS_NAME	=	checker
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -f
 SRC			=	src/push_swap.c src/sort_big_num.c src/sort_small_num.c src/utils.c src/parsing.c src/parsing_utils.c src/linked_list.c\
 				src/operations/push.c src/operations/rrotate.c src/operations/rotate.c src/operations/swap.c\

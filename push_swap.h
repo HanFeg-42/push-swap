@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/01 13:54:02 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/02 14:44:22 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strchr(const char *s, int c);
 
 //-------------bonus----------------------------
-char		*get_next_line(int fd);
+char		*get_next_line(int fd, int f);
 int			check_move(char *line, t_stack **a, t_stack **b);
 void		apply_moves(t_stack **a, t_stack **b);
 
