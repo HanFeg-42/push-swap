@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 08:24:05 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/02 14:51:30 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/02 15:19:01 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	apply_moves(t_stack **a, t_stack **b)
 			lst_clear(a);
 			lst_clear(b);
 			free(line);
-			line = get_next_line(0, 1);
+			get_next_line(0, 1);
 			exit(1);
 		}
 		free(line);
@@ -71,18 +71,13 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1)
-		return (0);
-	if (ac < 2 || !check_args(&a, av))
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (1);
-	}
+	if (ac < 2 || !check_args(&a, av))
+		return (ft_putstr_fd("Error\n", 2), 2);
 	apply_moves(&a, &b);
 	if (is_sorted(a) && b == NULL)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
-	lst_clear(&a);
-	lst_clear(&b);
-	return (0);
+	return (lst_clear(&a), lst_clear(&b), 0);
 }

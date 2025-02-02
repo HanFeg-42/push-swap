@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/01 13:49:43 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/02 15:17:52 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (1);
 	if (ac < 2 || !check_args(&a, av))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (2);
-	}
+		return (ft_putstr_fd("Error\n", 2), 2);
 	if (is_sorted(a))
 		return (lst_clear(&a), lst_clear(&b), 3);
 	a->size = lst_size(a);
