@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 08:24:05 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/02 15:19:01 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/02 22:49:57 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1)
-		return (1);
+		return (0);
 	if (ac < 2 || !check_args(&a, av))
-		return (ft_putstr_fd("Error\n", 2), 2);
+		return (ft_putstr_fd("Error\n", 2), 1);
 	apply_moves(&a, &b);
 	if (is_sorted(a) && b == NULL)
 		ft_putstr_fd("OK\n", 1);
