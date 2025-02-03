@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 03:49:08 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/01 13:48:00 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:31:31 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	sort_stack(t_stack **a, t_stack **b)
 {
+	if (is_rev_sorted(*a))
+	{
+		sort_rev_sorted(a, b);
+		return ;
+	}
 	(*a)->bubble = bubble_sort(*a);
 	init_bubble_size(*a, (*a)->bubble);
 	phase_1(a, b);

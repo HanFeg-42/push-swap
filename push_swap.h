@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/02 14:44:22 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:30:23 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ void		init_position(t_stack *lst);
 void		init_bubble_size(t_stack *lst, int *arr);
 //small ones
 void		sort_less_than_five(t_stack **a, t_stack **b);
+// sorted bl3ks
+void		sort_rev_sorted(t_stack **a, t_stack **b);
+int			is_rev_sorted(t_stack *a);
 
 //--------------utils-----------------------------
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -93,6 +96,5 @@ char		*ft_strchr(const char *s, int c);
 char		*get_next_line(int fd, int f);
 int			check_move(char *line, t_stack **a, t_stack **b);
 void		apply_moves(t_stack **a, t_stack **b);
-
 
 #endif
