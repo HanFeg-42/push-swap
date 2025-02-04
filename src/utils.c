@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 04:41:08 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/01 13:35:40 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:16:05 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,11 @@ void	init_bubble_size(t_stack *lst, int *arr)
 	size = lst_size(lst);
 	while (lst)
 	{
-		if (lst->size <= 100)
-			lst->gold = lst->size / 6;
+		if (size <= 100)
+			lst->gold = size / 6;
 		else
-			lst->gold = lst->size / 14;
+			lst->gold = size / 14;
 		lst->bubble = arr;
-		lst->size = size;
 		lst = lst->next;
 	}
 }

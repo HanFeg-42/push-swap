@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 11:39:28 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/02 14:43:50 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:18:12 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,7 @@ char	*get_next_line(int fd, int f)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (f)
-	{
-		free(save);
-		save = NULL;
-		return NULL;
-	}
+		return (free(save), save = NULL, NULL);
 	buff = malloc((BUFFER_SIZE * sizeof(char)) + 1);
 	if (!buff)
 		return (NULL);
