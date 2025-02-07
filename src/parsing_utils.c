@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 09:22:46 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/06 09:55:00 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/06 04:15:38 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	is_exist(char **av)
 	return (true);
 }
 
-int	special_case(char *av)
+int	le(char *av)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ int	special_case(char *av)
 	{
 		while (av[i])
 		{
-			if (av[i] == '1' && av[i + 1] == '\0')
+			if (av[i] == '0' && av[i + 1] == '1' && av[i + 2] == '\0')
 				return (true);
 			if (av[i] == '0')
 				i++;

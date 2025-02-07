@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 03:49:08 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/03 15:31:31 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:37:10 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,7 @@ int	*bubble_sort(t_stack *a)
 
 void	phase_1(t_stack	**a, t_stack **b)
 {
-	int	size;
-	int	end;
-	int	start;
-
+	int (size), (end), (start);
 	start = 0;
 	end = (*a)->gold;
 	size = lst_size(*a);
@@ -108,7 +105,7 @@ void	phase_2(t_stack **a, t_stack **b)
 		biggest = big_node(*b);
 		while (biggest->data != (*b)->data)
 		{
-			if (biggest->position < lst_size(*b) / 2)
+			if (biggest->position <= lst_size(*b) / 2)
 				rb(b, 1);
 			else
 				rrb(b, 1);

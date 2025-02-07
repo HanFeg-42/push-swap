@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:27:34 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/06 10:00:22 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:31:24 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int	main(int ac, char **av)
 	if (is_sorted(a))
 		return (lst_clear(&a), lst_clear(&b), 0);
 	a->size = lst_size(a);
-	a->bubble = malloc(a->size);
-	free(a->bubble);
 	if (a->size <= 5)
 		sort_less_than_five(&a, &b);
 	else

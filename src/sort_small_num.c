@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:46:48 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/06 10:21:39 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:55:24 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ static void	push_small_node(t_stack **a, t_stack **b)
 {
 	while (small_node(*a)->data != (*a)->data)
 	{
-		if (small_node(*a)->position <= lst_size(*a) / 2)
+		if (small_node(*a)->position < lst_size(*a) / 2)
 			ra(a, 1);
 		else
 			rra(a, 1);
 	}
-	pb(a, b, 1);
+	if (!is_sorted(*a))
+		pb(a, b, 1);
 }
 
 void	sort_less_than_five(t_stack **a, t_stack **b)
@@ -51,8 +52,11 @@ void	sort_less_than_five(t_stack **a, t_stack **b)
 		if (is_sorted(*a))
 			return ;
 		push_small_node(a, b);
-		sort_less_than_five(a, b);
-		pa(a, b, 1);
+		if (!is_sorted(*a))
+		{
+			sort_less_than_five(a, b);
+			pa(a, b, 1);
+		}
 	}
 	else if (lst_size(*a) == 3)
 	{

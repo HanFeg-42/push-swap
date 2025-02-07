@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:35:37 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/06 09:55:27 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/06 04:14:20 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			check_args(t_stack **a, char **av);
 int			is_sorted(t_stack *a);
 void		cleanup(char **str);
 int			is_exist(char **av);
-int			special_case(char *nbr);
+int			le(char *nbr);
 //-------linked_list---------------------------------
 t_stack		*lst_new(int nbr);
 t_stack		*lst_last(t_stack *lst);
