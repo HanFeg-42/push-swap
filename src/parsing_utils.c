@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 09:22:46 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/01 13:34:09 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/06 09:55:00 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,24 @@ int	is_exist(char **av)
 		i++;
 	}
 	return (true);
+}
+
+int	special_case(char *av)
+{
+	int	i;
+
+	i = 1;
+	if (av[0] == '-')
+	{
+		while (av[i])
+		{
+			if (av[i] == '1' && av[i + 1] == '\0')
+				return (true);
+			if (av[i] == '0')
+				i++;
+			else
+				break ;
+		}
+	}
+	return (false);
 }

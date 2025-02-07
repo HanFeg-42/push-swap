@@ -6,7 +6,7 @@
 /*   By: hfegrach <hfegrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:46:48 by hfegrach          #+#    #+#             */
-/*   Updated: 2025/02/01 13:51:26 by hfegrach         ###   ########.fr       */
+/*   Updated: 2025/02/06 10:21:39 by hfegrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	push_small_node(t_stack **a, t_stack **b)
 {
 	while (small_node(*a)->data != (*a)->data)
 	{
-		if (small_node(*a)->position < lst_size(*a) / 2)
+		if (small_node(*a)->position <= lst_size(*a) / 2)
 			ra(a, 1);
 		else
 			rra(a, 1);
